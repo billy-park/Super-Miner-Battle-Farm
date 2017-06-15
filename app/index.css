@@ -94,6 +94,7 @@ a {
 
 .nav {
   display: flex;
+  justify-content: center;
 }
 
 .active {
@@ -144,4 +145,44 @@ a {
 
 .reset:hover {
   cursor: pointer;
+}
+
+.logo {
+  height: 250px;
+  width: 250px;
+}
+
+.event {
+  max-width: 700px;
+  min-width: 700px;
+  min height: 300px;
+  overflow: hidden;
+    border: 3px solid rgba(255,0,0,100);
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+.event img {
+  height: auto;
+  width: 100%;
+
+  border-radius: 3px;
+}
+
+.eventWrap {
+  margin: 0 auto;
+}
+
+.event h4 {
+
+}
+
+.event p {
+
+}
+
+.eventList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

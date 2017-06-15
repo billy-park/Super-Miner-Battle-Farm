@@ -7,6 +7,7 @@ var Switch = ReactRouter.Switch;
 //require other components here
 var EventsList = require('./EventsList');
 var Facebook = require('./Facebook');
+var Apitest = require('./Apitest');
 var Nav = require('./Nav');
 
 class App extends React.Component {
@@ -16,8 +17,10 @@ class App extends React.Component {
         <div className='container'>
             <Nav />
             <Switch>
-              <Facebook />
-              <EventsList />
+              {/*<Route exact path='/' component={Home} />*/}
+              <Route exact path='/events' component={EventsList} />
+              {/*<Route exact path='/placeholder' component={Placeholder} />
+              <Route exact path='/contact' component={Contact} /> */}
             </Switch>
         </div>
       </Router>
