@@ -1,63 +1,95 @@
 var axios = require('axios');
+
+//Facebook api
 axios.defaults.baseURL = 'https://graph.facebook.com/v2.9';
-var eventsNumber = 4;
-//var fbat = '';
+var accessToken = null;
 
-function fbLogin () {
+//check login status
+function fbLoginStatus() {
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+}
+
+//login
+function fbLogin() {
   FB.login(function(response) {
-    //fbat = response.authResponse.accessToken;
-    if (response.authResponse) {
-     console.log('Welcome!  Fetching your information.... ');
-     FB.api('/me', function(response) {
-       console.log('Good to see you, ' + response.name + '.');
-     });
+    if (response.status === 'connected') {
+      console.log("logged in");
+      accessToken = response.authResponse.accessToken
     } else {
-     console.log('User cancelled login or did not fully authorize.');
+      console.log("unable to login");
     }
   });
 }
 
-function fbEvents () {
-  FB.api('/153549318022206/events', {limit: eventsNumber, since: '1493596800'}, function(response) {
-
-    //sort id of last 4 events into an array
-    let idArray = [];
-    for (let i=0; i < eventsNumber; i++) {
-      idArray.push(response.data[i].id);
-    }
-
-    return response;
-  });
+//logout
+function fbLogout() {
+  FB.logout();
 }
 
-function axEvents () {
-  axios.get('/153549318022206/events', {
-    params: {
-      limit: eventsNumber,
-      since: '1493596800',
-      access_token: fbat
+//fetch events
+function fbFetchEvents() {
+  FB.getLoginStatus(function(response) {
+    if (response.status === 'connected') {
+      console.log("connected");
+      accessToken = response.authResponse.accessToken
+      let currentTime = Math.floor(Date.now() / 1000 - 1000);
+      axios.get('/153549318022206/events', {
+        params: {
+        limit: 4,
+        fields: 'name,cover,start_time',
+        since: currentTime,
+        access_token: accessToken
+        }
+      })
+      .then(function(events) {
+        //console.log(events);
+        return events.data.data;
+      });
+    } else if (response.status === 'unknown') {
+      console.log("unkown");
+    } else if (response.status === 'not_authorized') {
+      console.log("not authorized");
     }
   })
-    .then(function (events) {
-      let idArray = [];
-      for (let i=0; i < eventsNumber; i++) {
-        idArray.push(events.data.data[i].id);
-      }
-      return {
-        eventsArray: idArray
-      }
-    })
-    .catch(function(error) {
-      console.log(error);
-    });
 }
 
 module.exports = {
-  loginUser: (fbLogin),
-  fetchEvents: function() {
-    return fbEvents()
+  fbLoginStatus: function() {
+    fbLoginStatus();
   },
-  axFetchEvents: function() {
-    return axEvents()
+  fbLogin: function() {
+    fbLogin();
+  },
+  fbLogout: function() {
+    fbLogout();
+  },
+  fbFetchEvents: function() {
+    fbFetchEvents();
+  },
+  fetchEventsTest: function () {
+    FB.getLoginStatus(function(response) {
+      accessToken = response.authResponse.accessToken;
+    });
+    let currentTime = Math.floor(Date.now() / 1000 - 1000);
+    return axios.get('https://graph.facebook.com/v2.9/153549318022206/events?fields=name%2Ccover%2Cstart_time&limit=4&since=' + currentTime + '&access_token=' + accessToken)
+    .then(function(events) {
+      console.log(events);
+      return events.data.data;
+    });
   }
+  /*battle: function(players) {
+    return axios.all(players.map(getUserData))
+      .then(sortPlayers)
+      .catch(handleError)
+  },
+  fetchPopularRepos: function (language) {
+    var encodedURI = window.encodeURI('https://api.github.com/search/repositories?q=stars:>1+language:' + language + '&sort=stars&order=desc&type=Repositories');
+
+     return axios.get(encodedURI)
+      .then(function(response) {
+       return response.data.items;
+     });
+  }*/
 }

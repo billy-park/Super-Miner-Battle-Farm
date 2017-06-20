@@ -3,50 +3,43 @@ var ReactRouter = require('react-router-dom');
 var Router = ReactRouter.BrowserRouter;
 var Route = ReactRouter.Route;
 var Switch = ReactRouter.Switch;
-
-//require other components here
+var PropTypes = require('prop-types');
+var axios = require('axios');
+//components
+var Home = require('./Home');
 var EventsList = require('./EventsList');
-var Facebook = require('./Facebook');
-var Apitest = require('./Apitest');
 var Nav = require('./Nav');
-
+var Contact = require('./Contact');
+var api = require('../utils/api');
 class App extends React.Component {
+  constructor (props) {
+    super (props);
+  }
+
+  componentDidMount() {
+  }
+
   render() {
     return (
       <Router>
         <div className='container'>
-            <Nav />
+            <a href='#'>test state</a>
+            <Nav
+              //loginStatus={this.state.userLoginStatus}
+              //loginFunction={this.handleLogin}
+              //logoutFunction={this.handleLogout}
+            />
             <Switch>
-              {/*<Route exact path='/' component={Home} />*/}
-              <Route exact path='/events' component={EventsList} />
-              {/*<Route exact path='/placeholder' component={Placeholder} />
-              <Route exact path='/contact' component={Contact} /> */}
+              <Route exact path='/' component={Home} />
+              <Route exact path='/events' component={EventsList}/>
+              {/*<Route exact path='/placeholder' component={Placeholder} example="exampleprop!"/> */}
+              <Route exact path='/contact' component={Contact} />
             </Switch>
         </div>
       </Router>
     )
   }
+
 }
 
-/*class App extends React.Component {
-  render() {
-    return(
-      <Router>
-        <div className='container'>
-          <Nav />
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/battle' component={Battle} />
-            <Route path='/battle/results' component={Results} />
-            <Route path='/popular' component={Popular} />
-            <Route render={function () {
-              return <p>Not Found</p>
-            }} />
-          </Switch>
-        </div>
-      </Router>
-    )
-  }
-}
-*/
 module.exports = App;

@@ -67,7 +67,7 @@ a {
   cursor: pointer;
 }
 
-.popular-list {
+.events-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -182,6 +182,12 @@ a {
 }
 
 .eventList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content {
   display: flex;
   flex-direction: column;
   align-items: center;
