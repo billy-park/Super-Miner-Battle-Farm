@@ -23,7 +23,7 @@ class Home extends React.Component {
           Super Miner Battle Farm
         </h1>
         <p>
-          Super Miner Battle Farm is a community of fighting game players based in South West England and Wales. We are a friendly and welcoming group of people with a good sense of humour and a desire to improve and support the offline scene in the UK. We host weekly sessions and monthly tournaments in Bristol, as well as other events in the Wales area.
+          Super Miner Battle Farm is a community of fighting game players based in South West England and Wales. We are a friendly and welcoming group of people with a good sense of humour and a desire to improve and support the offline scene in the UK. We host weekly sessions and tournaments in Bristol, as well as other events in the Wales area.
 
 If you're interested, please join our group page for more information on our events, tournaments we've gone to and any other fighting game news and videos our members post.
         </p>

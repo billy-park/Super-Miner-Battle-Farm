@@ -56,45 +56,22 @@ a {
   font-weight: 200;
 }
 
-.languages {
-  display: flex;
-  justify-content: center;
-}
-
-.languages li {
-  margin: 10px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
 .events-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
-.popular-item {
-  margin: 20px;
-  text-align: center;
-}
-
-.space-list-items {
-  margin-bottom: 7px;
-}
-
-.avatar {
-  width: 150px;
-  border-radius: 50%;
-}
-
-.popular-rank {
-  font-size: 20px;
-  margin: 10px;
-}
-
 .nav {
-  display: flex;
-  justify-content: center;
+  display: block;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.navbarLink {
+  min-width: 171px;
 }
 
 .active {
@@ -102,13 +79,14 @@ a {
 }
 
 .nav li {
-  margin-right: 15px;
+  display: inline-block;
+  width: 15%;
+  list-style: none;
+  vertical-align: middle;
 }
 
-.home-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.logoLi {
+  min-width: 220px;
 }
 
 .button {
@@ -131,25 +109,13 @@ a {
 }
 
 .button:active {
-  transform: translateY(1px;);
+  /*transform: translateY(1px;);*/
 }
-
-.reset {
-  border: none;
-  background: transparent;
-  color: #d0021b;
-  display: block;
-  width: 100%;
-  text-align: center;
-}
-
-.reset:hover {
-  cursor: pointer;
-}
-
 .logo {
-  height: 250px;
-  width: 250px;
+  margin: 10px auto 0px auto;
+  display: block;
+  height: 220px;
+  width: 220px;
 }
 
 .event {
@@ -191,4 +157,27 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.fbButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 10px;
+}
+
+.picWrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.smbfPic {
+  max-height: 500px;
+  max-width: 500px;
+}
+
+.eventButton {
+  color: red;
 }
