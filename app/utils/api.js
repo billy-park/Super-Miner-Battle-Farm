@@ -227,7 +227,7 @@ module.exports = {
     FB.getLoginStatus(function(response) {
       accessToken = response.authResponse.accessToken;
     });
-    return axios.get('https://graph.facebook.com/v2.9/632698586773941/photos?fields=images' + '&access_token=' + accessToken)
+    return axios.get('https://graph.facebook.com/v2.9/1538242692886188/photos?fields=images' + '&access_token=' + accessToken)
     .then(function(pics) {
       console.log(pics);
       return pics.data.data;

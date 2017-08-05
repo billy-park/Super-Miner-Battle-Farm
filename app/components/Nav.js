@@ -33,6 +33,9 @@ class Nav extends React.Component {
       <div>
         <ul className='nav'>
           <li>
+            
+          </li>
+          <li>
             <NavLink exact className='navbarLink' activeClassName='active' to='/'>
               Home
             </NavLink>
@@ -58,10 +61,12 @@ class Nav extends React.Component {
               Find Us
             </NavLink>
           </li>
+          <li className='navLiFb'>
+            <div className="fbButton">
+              <div className="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true" data-scope="rsvp_event" data-onLogin="location.reload();"></div>
+            </div>
+          </li>
         </ul>
-        <div className="fbButton">
-          <div className="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true" data-scope="rsvp_event" data-onLogin="location.reload();"></div>
-        </div>
       </div>
     )
   }

@@ -22,11 +22,16 @@ class Home extends React.Component {
         <h1>
           Super Miner Battle Farm
         </h1>
-        <p>
-          Super Miner Battle Farm is a community of fighting game players based in South West England and Wales. We are a friendly and welcoming group of people with a good sense of humour and a desire to improve and support the offline scene in the UK. We host weekly sessions and tournaments in Bristol, as well as other events in the Wales area.
+        <div className='homeIntro'>
+          <p>
+            Super Miner Battle Farm is a community of fighting game players based in South West England and Wales. We are a friendly and welcoming group of people with a good sense of humour and a desire to improve and support the offline scene in the UK. We host weekly sessions and tournaments in Bristol, as well as other events in the Wales area.
 
-If you're interested, please join our group page for more information on our events, tournaments we've gone to and any other fighting game news and videos our members post.
-        </p>
+            If you're interested, please join our group page for more information on our events, tournaments we've gone to and any other fighting game news and videos our members post.
+          </p>
+        </div>
+        <div>
+          <iframe className='sodiumVid' width="560" height="315" src="https://www.youtube.com/embed/VfCBDgEyAI0" frameborder="0" allowfullscreen></iframe>
+        </div>
       </div>
     )
   }

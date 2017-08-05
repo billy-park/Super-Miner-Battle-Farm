@@ -10,11 +10,11 @@ var api = require('../utils/api');
 
 function Picture (props) {
   return (
-    <div className='picture'>
-        <div className='picWrap'>
-          <img className='smbfPic' src={props.picSrc}></img>
-        </div>
-    </div>
+      <div className='picture'>
+          <div className='picWrap'>
+            <img className='smbfPic' src={props.picSrc}></img>
+          </div>
+      </div>
   )
 }
 
@@ -84,17 +84,19 @@ class Gallery extends React.Component {
   render() {
     return (
       <div className='content'>
-        <h1>SMBF Photo Gallery!</h1>
-        {!this.state.picsObjState
-          ? <p>Please log in to facebook to view the gallery</p>
-          : this.state.picsObjState.map(function(pic, y) {
-          return (
-            <Picture
-              key={y}
-              picSrc={pic.images[3].source}
-            />
-          )
-        })}
+        <h1>SMBF Gallery</h1>
+        <div className='galleryContainer'>
+          {!this.state.picsObjState
+            ? <p>Please log in to facebook to view the gallery</p>
+            : this.state.picsObjState.map(function(pic, y) {
+            return (
+              <Picture
+                key={y}
+                picSrc={pic.images[3].source}
+              />
+            )
+          })}
+        </div>
       </div>
     )
   }
