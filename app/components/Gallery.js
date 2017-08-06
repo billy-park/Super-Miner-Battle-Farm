@@ -5,6 +5,7 @@ var Route = ReactRouter.Route;
 var Switch = ReactRouter.Switch;
 var PropTypes = require('prop-types');
 var axios = require('axios');
+
 //components
 var api = require('../utils/api');
 
@@ -27,17 +28,12 @@ class Gallery extends React.Component {
   }
 
   componentDidMount() {
+    //ensure user is logged in to facebook
     setTimeout(function() {
-      /*FB.Event.subscribe('auth.login', function(response) {
-        console.log("nice");
-        //this.updatePage();
-      }.bind(this));*/
-      console.log("mounted");
       if (typeof(FB) != 'undefined'
        && FB != null ) {
          FB.getLoginStatus(function(response) {
-           console.log(response, "test");
-           this.testBind(response);
+           this.populateAlbum(response);
          }.bind(this));
       } else {
         window.fbAsyncInit = function() {
@@ -49,33 +45,26 @@ class Gallery extends React.Component {
             });
           FB.AppEvents.logPageView();
           FB.getLoginStatus(function(response) {
-            console.log("nice", response);
           });
           FB.getLoginStatus(function(response) {
-            console.log(response, "test");
-            this.testBind(response);
+            this.populateAlbum(response);
           }.bind(this));
         }.bind(this);
       }
     }.bind(this), 100);
   }
 
-  testBind(response) {
-    console.log("TESTBIND");
+  //fetch and populate state with pictures
+  populateAlbum(response) {
     if (response.status === 'connected') {
-      console.log("ef");
-      api.fetchAlbumTest()
+      api.fetchAlbum()
       .then(function(pics) {
-        //pics.reverse();
-        //console.log(events);
         this.setState(function () {
           return {
-            //possible to sort by date?
             picsObjState: pics
           }
         }.bind(this));
       }.bind(this));
-      this.forceUpdate();
     } else {
       console.log("not connected");
     }
@@ -100,7 +89,6 @@ class Gallery extends React.Component {
       </div>
     )
   }
-
 }
 
 module.exports = Gallery;

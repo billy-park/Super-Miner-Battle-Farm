@@ -56,12 +56,7 @@ a {
   font-weight: 200;
 }
 
-.events-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
+/*nav*/
 .nav {
   display: block;
   text-align: center;
@@ -83,14 +78,6 @@ a {
   width: 12%;
   list-style: none;
   vertical-align: middle;
-}
-
-.navLiFb {
-}
-
-.fbUl{
-    float: right;
-    width: 0px;
 }
 
 .logoLi {
@@ -116,14 +103,18 @@ a {
   text-decoration: none;
 }
 
-.button:active {
-  /*transform: translateY(1px;);*/
-}
 .logo {
   margin: 10px auto 0px auto;
   display: block;
   height: 220px;
   width: 220px;
+}
+
+.fbButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0px;
 }
 
 .content {
@@ -137,28 +128,25 @@ a {
   margin-top: 0px;
 }
 
-.fbButton {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /*margin-top: 40px;*/
-  margin-bottom: 0px;
-}
-
-.lanesMap {
-  border-style: solid;
-  border-width: 2px;
-  border-color: rgba(200,0,0,100);
-}
-
 /*home*/
-
 .homeIntro {
   width: 800px;
   margin-bottom: 40px;
 }
 
-/*events list */
+.sodiumVid {
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgba(200,0,0,100);
+}
+
+/*events list*/
+.events-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
 .eventName {
   float: left;
   width: 50%;
@@ -252,7 +240,6 @@ a {
   align-items: center;
 }
 
-
 /*gallery*/
 .galleryContainer {
   display: flex;
@@ -276,12 +263,13 @@ a {
   border-color: rgba(200,0,0,100);
 }
 
-.sodiumVid {
+.lower {
+  font-weight: normal;
+}
+
+/*contact*/
+.lanesMap {
   border-style: solid;
   border-width: 2px;
   border-color: rgba(200,0,0,100);
-}
-
-.lower {
-  font-weight: normal;
 }

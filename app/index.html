@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>SMBF - Stay Free</title>
+    <link rel="icon" type="image/ico" href="/public/favicon.ico">
   </head>
   <body>
     <div id="fb-root"></div>
@@ -16,7 +17,6 @@
           });
         FB.AppEvents.logPageView();
         FB.getLoginStatus(function(response) {
-          console.log("nice", response);
         });
       };
 

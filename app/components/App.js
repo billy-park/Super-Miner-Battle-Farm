@@ -3,8 +3,7 @@ var ReactRouter = require('react-router-dom');
 var Router = ReactRouter.BrowserRouter;
 var Route = ReactRouter.Route;
 var Switch = ReactRouter.Switch;
-var PropTypes = require('prop-types');
-var axios = require('axios');
+
 //components
 var Home = require('./Home');
 var EventsList = require('./EventsList');
@@ -12,11 +11,10 @@ var Nav = require('./Nav');
 var Contact = require('./Contact');
 var Gallery = require('./Gallery');
 var api = require('../utils/api');
+
 class App extends React.Component {
   constructor (props) {
     super (props);
-
-
   }
 
   componentDidMount() {
@@ -46,7 +44,6 @@ class App extends React.Component {
       </Router>
     )
   }
-
 }
 
 module.exports = App;
