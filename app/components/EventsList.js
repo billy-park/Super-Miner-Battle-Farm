@@ -119,7 +119,7 @@ class EventsList extends React.Component {
           }.bind(this));
         }.bind(this);
       }
-    }.bind(this), 100);
+    }.bind(this), 50);
   }
 
   //fetch and populate state with event data
@@ -144,20 +144,23 @@ class EventsList extends React.Component {
       <div className='eventList'>
         <h1>Upcoming SMBF Events</h1>
         {!this.state.eventsObjState
-          ? <p>Please log in to facebook to view list of upcoming events</p>
-          : this.state.eventsObjState.map(function(event, y) {
-            var date_parsed = moment(event.start_time, "YYYY-MM-DD hh:mm Z");
-            var thisEventDate = date_parsed.format('MMMM Do, h:mm:ss a');
-          return (
-            <Event
-              key={y}
-              eventId={event.id}
-              eventName={event.name}
-              eventCover={event.cover.source}
-              eventDate={thisEventDate}
-            />
-          )
-        })}
+          ? <p>Please log in to Facebook to view the list of upcoming events</p>
+          : this.state.eventsObjState.length === 0
+            ? <p>There are currently no upcoming SMBF events, please check again soon or join the
+              <a className='lower' href='https://www.facebook.com/groups/superminerbattlefarm'> SMBF Facebook Group</a> for updates</p>
+            : this.state.eventsObjState.map(function(event, y) {
+              var date_parsed = moment(event.start_time, "YYYY-MM-DD hh:mm Z");
+              var thisEventDate = date_parsed.format('MMMM Do, h:mm:ss a');
+              return (
+                <Event
+                  key={y}
+                  eventId={event.id}
+                  eventName={event.name}
+                  eventCover={event.cover.source}
+                  eventDate={thisEventDate}
+                />
+              )
+          })}
       </div>
     )
   }

@@ -39,6 +39,9 @@ class App extends React.Component {
               <Route exact path='/events' component={EventsList} />
               <Route exact path='/gallery' component={Gallery} />
               <Route exact path='/contact' component={Contact} />
+              <Route render={function () {
+                return <p>Not Found</p>
+              }} />
             </Switch>
         </div>
       </Router>

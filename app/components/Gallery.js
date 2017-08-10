@@ -76,7 +76,7 @@ class Gallery extends React.Component {
         <h1>SMBF Gallery</h1>
         <div className='galleryContainer'>
           {!this.state.picsObjState
-            ? <p>Please log in to facebook to view the gallery</p>
+            ? <p>Please log in to Facebook to view the gallery</p>
             : this.state.picsObjState.map(function(pic, y) {
             return (
               <Picture

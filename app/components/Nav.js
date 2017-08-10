@@ -4,6 +4,9 @@ var NavLink = require('react-router-dom').NavLink;
 //components
 var api = require('../utils/api');
 
+//images
+import logo from '../images/logo.png';
+
 class Nav extends React.Component {
   constructor(props) {
     super(props);
@@ -30,7 +33,8 @@ class Nav extends React.Component {
               Events
             </NavLink>
           </li>
-          <li className='logoLi'><img className='logo' src='../logo.png'></img></li>
+          {/*<li className='logoLi'><img className='logo' src='/app/images/logo.png'></img></li>*/}
+          <li className='logoLi'><img className='logo' src={logo}></img></li>
           <li>
             <NavLink className='navbarLink' activeClassName='active' to='/gallery'>
               Gallery
